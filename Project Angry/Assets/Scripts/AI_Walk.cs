@@ -67,9 +67,12 @@ public class AI_Walk : MonoBehaviour {
 		Rigidbody2D playerRig = ray.collider.gameObject.GetComponent<Rigidbody2D> ();
 		if (!playerScript._tookDamage) {
 			playerRig.AddForce (new Vector2 (aiScale.x, 1) * 300);
-			playerScript._tookDamage = true;
 			playerScript.StartCoroutine ("invincibility");
 			StartCoroutine ("WaitLaugh");
+			playerScript.hearts[playerScript.health].SetActive(false);
+			playerScript.health--;
+			playerScript._tookDamage = true;
+
 		}
 	}
 

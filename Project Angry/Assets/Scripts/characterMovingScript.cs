@@ -10,6 +10,9 @@ public class characterMovingScript : MonoBehaviour {
     Rigidbody2D rig2d;
 	public LayerMask environment;
 
+	public int health = 2;
+	public GameObject[] hearts;
+
     public bool _isJumping = false; // Check if character is falling
 	bool _canMove = true;
 	public bool _tookDamage = false; // Did someone do damage to this character
@@ -23,13 +26,14 @@ public class characterMovingScript : MonoBehaviour {
 	
 
 	void Update () {
-        
 		if (_canMove) {
 			moveCharacter ();
 		} else {
 			horizontal = 0;
 		}
 		checkFalling (); // Continuosly check are we falling?
+
+		checkGameStatus ();
     }
 
 	void moveCharacter(){
@@ -87,6 +91,12 @@ public class characterMovingScript : MonoBehaviour {
 		Vector3 forwardRay = new Vector3 (faceDir.x, 0, 0);
 		RaycastHit2D ray = Physics2D.Raycast(rayFront.transform.position, forwardRay, 1f); //scan front
 		Debug.DrawRay(rayStart.transform.position, forwardRay, Color.blue); //Debugging, remove when done
+	}
+
+	void checkGameStatus(){
+		if (health < 0) {
+			Application.LoadLevel (0);
+		}
 	}
 
 	public IEnumerator invincibility(){
