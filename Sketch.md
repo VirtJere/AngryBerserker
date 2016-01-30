@@ -34,6 +34,9 @@ A Viking is travelling across Finland to his wedding fighting enemies, collectin
 - beer (you're drunk)
 - mushroom (you go berserk)
 
+**Berserk**:
+When you go berserk, colors change and all enemies are randomly transformed into something cute, which you easily kill without hitting, just passing by.
+
 **List of enemies**:
 - ogre (throws stones)
 - troll (insults your momma)
